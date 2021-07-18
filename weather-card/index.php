@@ -5,10 +5,11 @@ function bilud_json($origin_str){
     $json_str = json_encode($json_obj, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
     return $json_str;
 }
+$api_url="";
 $user_ip = $_SERVER["REMOTE_ADDR"];
 $font="Genshin.ttf";
 $height=120;
-$info=json_decode(bilud_json(file_get_contents('https://api.loliurl.club/api/weather/?ip='.$user_ip)));
+$info=json_decode(bilud_json(file_get_contents($api_url.'/?ip='.$user_ip)));
 $img=imagecreatefrompng('asstes/bg.png');
 imagesavealpha($img, true);
 $color=ImageColorAllocate($img, 52, 152, 219);
